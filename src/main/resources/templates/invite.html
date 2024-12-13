@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vabilo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 24px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Vabilo</h1>
+    <form th:action="@{generate-pdf}" method="post">
+        <div class="form-group">
+            <label for="age">Starost:</label>
+            <input type="text" id="age" name="age" th:value="${age}" required>
+        </div>
+        <div class="form-group">
+            <label for="date">Datum:</label>
+            <input type="text" id="date" name="date" th:value="${date}" required>
+        </div>
+        <div class="form-group">
+            <label for="startTime">Začetek:</label>
+            <input type="text" id="startTime" name="startTime" th:value="${startTime}" required>
+        </div>
+        <div class="form-group">
+            <label for="endTime">Konec:</label>
+            <input type="text" id="endTime" name="endTime" th:value="${endTime}" required>
+        </div>
+        <div class="form-group">
+            <label for="idLocation">Lokacija:</label>
+            <select id="idLocation" name="idLocation" required>
+                <option value="1">TP</option>
+                <option value="2">Karting</option>
+                <option value="3">Arena</option>
+                <option value="5">Izzivi</option>
+                <option value="6">Maribor</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Telefon:</label>
+            <input type="text" id="phone" name="phone" th:value="${phone}" required>
+        </div>
+        <div class="form-group">
+            <label for="childName">Ime slavljenca:</label>
+            <input type="text" id="childName" name="childName" th:value="${childName}" required>
+        </div>
+        <div class="form-group">
+            <label for="idProgType">Program:</label>
+            <select id="idProgType" name="idProgType" required>
+                <option value="38">Trampolini</option>
+                <option value="9">Fun walls</option>
+                <option value="42">ER</option>
+                <option value="45">LT</option>
+                <option value="44">Bowling</option>
+                <option value="41">Izzivi</option>
+                <option value="43">Golf</option>
+            </select>
+        </div>
+        <button type="submit">Izvozi</button>
+    </form>
+</div>
+</body>
+</html>
